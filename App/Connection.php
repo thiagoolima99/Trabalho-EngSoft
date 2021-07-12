@@ -5,7 +5,7 @@
 		public static function getDb() {
 			try {
 				$conn = new \PDO(
-					"mysql:host=ec2-23-20-124-77.compute-1.amazonaws.com;dbname=agenda_contatos;charset=utf8","zrukxewzxeqxnv", "7447e094b9f100122a544f53b992a16d7049df8fce58e092d5f1e3ac83b75a8b"
+					"mysql:host=pk1l4ihepirw9fob.cbetxkdyhwsb.us-east-1.rds.amazonaws.com;dbname=agenda_contatos;charset=utf8","zb0b5lyls87rdkxt", "i8372rmi6v6i4vie"
 				);
 
 				return $conn;
