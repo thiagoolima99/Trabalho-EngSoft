@@ -1,0 +1,13 @@
+body {
+	font-family: "Segoe UI Light", Arial, Helvetica, sans-serif;
+}
+.gradient {
+	background: linear-gradient(160deg, #ff4169, #7c26f8);
+}
+.red {
+	background-color: #ff4169;
+	color: white;
+}
+.banner {
+	background-image: url('/img/agenda.jpg')
+}

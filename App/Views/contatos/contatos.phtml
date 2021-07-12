@@ -1,0 +1,96 @@
+<?php include 'nav.phtml'; ?>
+
+<div class="container">
+    <h2>Contatos</h2>
+    <a class="btn red mb-2" href="/add_contato">Novo contato</a>
+    <hr />
+
+    <form action="/contatos" method="get">
+        <div class="row">
+            <div class="col-6">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control" placeholder="Buscar contatos" />
+                    <div class="input-group-append">
+                        <button class="btn red btn-serch" type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group">
+                    <select name="grupo" class="form-control">
+                        <option value="">Todos</option>
+                        <option value="1">Grupo 1</option>
+                        <option value="2">Grupo 2</option>
+                    </select>
+                    <div class="input-group-append">
+                        <button class="btn red" type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<section class="container d-flex">
+    <div class="row">
+        <?php
+
+         foreach ($this->view->contatos as $contato) { ?>
+        <div class="card m-2">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="/img/<?= $contato['co_photo']?>.png" width="60" class="rounded-circle" />
+                    </div>
+                    <div class="col-9">
+                        <h4 class="card-title"><?= $contato['co_name']?></h4>
+                        <p class="card-text m-0"><?=$contato['co_email']?></p>
+                        <p class="card-text m-0"><?=$contato['co_cellphone']?></p>
+                        <p class="card-text m-0">
+                            <?=$contato['co_city']?>
+                            |
+                            <?=$contato['co_cep']?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-warning text-white btn-sm" href="/edit_contato?id=<?=$contato['co_id']?>">Editar</a>
+                <button class="btn red btn-sm btn-excluir" data-id="<?= $contato['co_id']?>" data-toggle="modal" data-target="#excluirModal">Deletar</button>
+            </div>
+        </div>
+        <?php } ?>
+    </div>
+</section>
+
+<!-- Modal Excluir-->
+<div class="modal fade" id="excluirModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Você tem certeza que deseja excluir esse contato?</h5>
+                <script>
+                    document.querySelectorAll(".btn-excluir").forEach((btn) => {
+                        btn.addEventListener("click", (e) => {
+                            var id = btn.getAttribute("data-id");
+                            console.log(id);
+                            document.getElementById("bt-excluir").onclick = function () {
+                                location.href = "/delete_contato?id=" + id;
+                            };
+                        });
+                    });
+                </script>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row mb-2 pl-4">
+                    <div lang="col-12">
+                        <button type="button" id="bt-excluir" class="btn red">Sim</button>
+                        <button type="submit" class="btn btn-warning text-white" data-dismiss="modal">Não</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

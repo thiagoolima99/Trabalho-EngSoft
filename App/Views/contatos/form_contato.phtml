@@ -1,0 +1,50 @@
+<?php include 'nav.phtml'; ?>
+
+<div class="container w-25 mt-5">
+<div class="card">
+   <div class="card-header gradient text-light">
+      <h3>Novo contato</h3>
+   </div>
+   <div class="card-body">
+      <div class="row">
+         <div class="col">
+            <form action="/cadastrar_contato" method="post">
+               <div class="form-group">
+                  <input name="nome" type="text" class="form-control" placeholder="Nome" required="">
+               </div>
+               <div class="form-group">
+                  <input name="telefone" type="number" class="form-control" placeholder="Telefone" required="">
+               </div>
+               <div class="form-group">
+                  <input name="email" type="email" class="form-control" placeholder="Email" required="">
+               </div>
+               <div class="form-group">
+                  <select name="cidade" class="form-control">
+                     <option value="brasilia">Brasília</option>
+                     <option value="taguatinga">Taguatinga</option>
+                     <option value="aguas">Águas Claras</option>
+                     <option value="gama">Gama</option>
+                  </select>
+               </div>
+               <div class="form-group">
+                  <input name="cep" type="number" class="form-control" placeholder="CEP" required="">
+               </div>
+               <div class="form-group">
+                  <select name="grupo" class="form-control">
+                     <option value="1">Grupo 1</option>
+                     <option value="2">Grupo 2</option>
+                  </select>
+               </div>
+               <div class="row mt-5">
+                  <div class="col-6">
+                     <a  href="/contatos" class="btn btn-secondary text-light btn-block">Voltar</a>
+                  </div>
+                  <div class="col-6">
+                     <button class="btn btn-block red" type="submit">Salvar</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+   </div>
+</div>

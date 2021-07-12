@@ -1,0 +1,38 @@
+<div class="container-fluid">
+	<div class="row">
+    
+    <div class="col-md-6 banner" style="height: 750px">
+    </div>
+
+    <div class="col-md-6 p-3">
+		<form method="post" action="/auth">
+			<div class="row">
+				<div class="col">
+					<input type="text" name="id" class="form-control" placeholder="ID do usuário" required="">
+				</div>
+				<div class="col">
+					<input type="password" name="senha" class="form-control" placeholder="Senha" required="">
+				</div>
+				<div class="col-auto">
+					<button type="submit" class="btn red text-white mb-2">Entrar</button>
+				</div>
+			</div>
+
+		</form>
+
+		<div class="row">
+			<div class="col">
+				<img src="/img/logo.png" width="50" />
+				<h1 class="title">Salve seus contatos e acesse fácil</h1>
+
+				<h2 class="mt-5 subtitle">Crie sua conta</h2>
+				<a href="/nova_conta" class="btn red text-white mb-2 w-25">Criar conta</a>
+			</div>	
+		</div>
+		<?php if(!empty($_GET['id'])) {?>
+			<div class="alert alert-success">Sua conta foi criada com sucesso - Use o ID <?= $_GET['id']?> para logar</div>
+		<?php } ?>
+    </div>
+
+  </div>
+</div>
