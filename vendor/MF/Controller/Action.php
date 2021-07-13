@@ -12,8 +12,8 @@ abstract class Action {
 	protected function render($view, $layout) {
 		$this->view->page = $view;
 
-		if(file_exists("../App/Views/".$layout.".phtml")) {
-			require_once "../App/Views/".$layout.".phtml";
+		if(file_exists("App/Views/".$layout.".phtml")) {
+			require_once "App/Views/".$layout.".phtml";
 		} else {
 			$this->content();
 		}
@@ -25,7 +25,7 @@ abstract class Action {
 		$classeAtual = str_replace('App\\Controllers\\', '', $classeAtual);
 		$classeAtual = strtolower(str_replace('Controller', '', $classeAtual));
 
-		require_once "../App/Views/".$classeAtual."/".$this->view->page.".phtml";
+		require_once "App/Views/".$classeAtual."/".$this->view->page.".phtml";
 	}
 }
 

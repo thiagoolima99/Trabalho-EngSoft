@@ -58,7 +58,8 @@
 
 		public function getId($name) {
 			$sql = "SELECT us_id, us_username FROM users WHERE us_username = '".$name."'";
-			return $this->db->query($sql)->fetchAll();
+			//return $this->db->query($sql)->fetchAll();
+			print_r($this->db->query($sql)->fetchAll());
 		}
 	}
 ?>

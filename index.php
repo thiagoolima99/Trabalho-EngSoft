@@ -1,4 +1,4 @@
 <?php 
 	require_once "vendor/autoload.php"; 
 
-	$route = new \App\route;
+	$route = new \App\Route;
